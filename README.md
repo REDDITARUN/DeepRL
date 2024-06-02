@@ -260,3 +260,6 @@ The CarRacing environment falls into this category, where the state is represent
 -   [Actor-Critic Methods](https://arxiv.org/abs/1602.01783)
 -   [OpenAI Gym](https://gym.openai.com/)
 -   [PyTorch Documentation](https://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html)
+
+#### Academic Integrity Disclaimer🚨
+This project in this repository is intended solely as an inspiration for your future projects and should be referenced accordingly. It is not meant for students to fulfill their academic project requirements. If a student uses this project for such purposes, the creators are not responsible. The student will be solely accountable for violating academic integrity. We explicitly state that this repository should not be used to meet academic requirements. Therefore, any academic integrity issues should be addressed with the student, not the creators.

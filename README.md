@@ -20,18 +20,21 @@ Deep RL is a crucial area of artificial intelligence that enables agents to make
 3. **Target Networks**: Using a separate target network to stabilize training.
 4. **Improved DQN Variants**: Implementing Double DQN (DDQN) and other advanced techniques.
 5. **OpenAI Gym Environments**: Working with various Gym environments to test and validate RL algorithms.
+6. **Actor-Critic (A2C)**: Combining policy gradient and value-based methods for improved learning.
 
 ### Usage and Outcomes
 
 -   **Grid World**: Implemented a custom grid world environment and solved it using DQN and DDQN.
 -   **CartPole**: Applied DQN and DDQN to balance a pole on a cart, demonstrating the ability to learn dynamic control tasks.
 -   **Mountain Car**: Solved the Mountain Car problem, showcasing the challenges of sparse rewards and the importance of strategic exploration.
+-   **Bipedal Walker**: Tackled the Bipedal Walker environment, showing the application of Actor-Critic methods in continuous action spaces.
 
 ## Project Structure
 
 -   **Introduction to Deep Reinforcement Learning**: Setting up neural networks for the Wumpus World environment.
 -   **Implementing DQN**: Solving grid-world, CartPole, and Mountain Car environments with DQN.
 -   **Improving DQN**: Implementing and evaluating Double DQN on the same environments.
+-   **Actor-Critic**: Implementing and evaluating A2C on CartPole, Bipedal Walker, and Grid World environments.
 
 ## Deep Q-Learning (DQN)
 
@@ -57,7 +60,7 @@ Refer to the <a src="https://github.com/kcharvi/Defining-and-Solving-Reinforceme
 -   **Actions**: Accelerate forwards, backwards, or do nothing.
 -   **Rewards**: -1 for each time step until the goal state is reached; episode terminates when the car reaches the top of the higher mountain.
 
-### Algorithms and Implementation
+### Algorithm and Implementation
 
 #### Benefits of Using DQN
 
@@ -99,7 +102,7 @@ Refer to the <a src="https://github.com/kcharvi/Defining-and-Solving-Reinforceme
 -   **CartPole**: Improvements over time but with inconsistency, highlighting the need for further training.
 -   **Mountain Car**: Struggles due to sparse rewards and the need for strategic exploration.
 
-## Project 2 - Improving DQN with Double DQN (DDQN)
+## Improving DQN with Double DQN (DDQN)
 
 ### Algorithm Implementation
 
@@ -148,9 +151,104 @@ Refer to the <a src="https://github.com/kcharvi/Defining-and-Solving-Reinforceme
    ![Mountain Car DDQN Evaluation](<images/Untitled%20(7).png>)
    ![Mountain Car DDQN Evaluation](<images/Untitled%20(8).png>)
 
+## Actor-Critic (A2C)
+
+### Algorithm Implementation
+
+The Actor-Critic (A2C) algorithm combines elements of both policy gradient methods and value-based methods. It uses two neural networks, an actor network, and a critic network, to learn a policy and a value function simultaneously.
+
+#### Actor Network (ANet)
+
+-   **Input Layer**: Takes an input with 4 features.
+-   **Hidden Layer**: Expands the input to 128 neurons.
+-   **Output Layer**: Reduces the 128 neurons to 2 outputs, representing the probabilities of two possible actions.
+
+#### Critic Network (CNet)
+
+-   **Input Layer**: Also starts with 4 features from the environment.
+-   **Hidden Layer**: Processes these through 128 neurons.
+-   **Output Layer**: Maps the 128 neurons to a single output, providing a scalar value estimation of the state’s value.
+
+Each network uses a ReLU activation function in the hidden layers to introduce non-linearity. The ANet uses a Softmax function in the output layer to convert logits into action probabilities, while the CNet directly outputs a scalar value without a final activation function.
+
+### Environment Descriptions
+
+#### 1. CartPole-v1
+
+-   **States**: 4-dimensional vector representing the position and velocity of the cart, and the angle and angular velocity of the pole.
+-   **Actions**: Discrete, with two possible actions: move left or move right.
+-   **Rewards**: +1 for each timestep the pole remains balanced; episode terminates when the pole falls beyond a certain angle or the cart moves too far from the center.
+
+#### 2. BipedalWalker-v3
+
+-   **States**: 24-dimensional vector representing various aspects of the robot's state, such as position, angle, velocity, and angular velocity of its body parts.
+-   **Actions**: Continuous, with four possible actions corresponding to the torque applied to each leg joint.
+-   **Rewards**: Rewards based on movement, higher rewards for moving forward and penalties for falling or making sharp movements.
+
+#### 3. Grid World
+
+-   **States**: 16-dimensional state vector.
+-   **Actions**: Discrete, with four possible actions: left, right, up, down.
+-   **Rewards**: Positive rewards for collecting gems and reaching the goal; negative rewards for falling into holes or moving away from the goal.
+
+### Results and Discussions
+
+1. **CartPole-v1 Environment**
+   ![CartPole A2C](images/Untitled.png)
+
+    - **Total Rewards per Episode**: Increasing rewards, showing the agent's learning progression.
+
+2. **BipedalWalker-v3 Environment**
+   ![BipedalWalker A2C](<images/Untitled%20(1).png>)
+
+    - **Total Rewards per Episode**: Fluctuating rewards, reflecting the environment's complexity.
+
+3. **Grid World Environment**
+   ![GridWorld A2C](<images/Untitled%20(2).png>)
+
+    - **Total Rewards per Episode**: Increasing trend, indicating the agent's effective learning of the environment.
+
+### Evaluation Results
+
+1. **CartPole**
+   ![CartPole A2C Evaluation](<images/Untitled%20(3)_.png>)
+
+    - **Performance**: Consistently achieving maximum rewards, indicating a well-learned policy.
+
+2. **BipedalWalker**
+   ![BipedalWalker A2C Evaluation](<images/Untitled%20(4)_.png>)
+
+    - **Performance**: Fluctuating evaluation scores, showing the need for further fine-tuning.
+
+3. **Grid World**
+   ![GridWorld A2C Evaluation](<images/Untitled%20(5)_.png>)
+
+    - **Performance**: Optimal rewards consistently, showing a reliable and robust learned policy.
+
+### Comparison of Environments
+
+-   **CartPole**: The agent consistently hit the reward ceiling, showing effective learning and optimal policy.
+-   **BipedalWalker**: Fluctuating learning experience due to environment complexity, but overall trend indicates improvement.
+-   **Grid World**: Optimal rewards achieved consistently, reflecting the agent's ability to navigate the environment effectively.
+
+## Image-based Environment - Car Racing
+
+Use one of the environments with image representation of the state that requires a utilization of CNN (Convolution Neural Network) for the state preprocessing (e.g. Breakout).
+
+The CarRacing environment falls into this category, where the state is represented by pixels from the game's image frame. To process this type of image data effectively, a Convolutional Neural Network (CNN) is used to extract features from the raw images, which helps in understanding the visual elements such as the track layout, obstacles, and the car's position. These features then become the input state for the agent's decision-making process. Using a CNN to preprocess the image data allows the agent to learn policies based on the visual cues, which is essential in environments like CarRacing where the state space is high-dimensional and rich in visual information.
+
+-   In CarRacing-v2, the agent controls a race car on a track with the goal of completing the race as quickly as possible.
+-   The observation space is a 96x96x3 image representing the RGB pixels of the game screen.
+-   The action space is continuous, allowing the agent to control the car's steering, acceleration, and braking.
+-   The agent receives rewards based on its position and speed on the track, with higher rewards for staying on the track, maintaining high speed, and completing laps efficiently.
+-   Car Racing Training:
+
+    ![Car Racing Training](<images/Untitled%20(6)_.png>)
+
 ## References
 
 -   [Deep Q-Learning (DQN)](https://arxiv.org/abs/1312.5602)
 -   [Double DQN](https://arxiv.org/abs/1509.06461)
+-   [Actor-Critic Methods](https://arxiv.org/abs/1602.01783)
 -   [OpenAI Gym](https://gym.openai.com/)
 -   [PyTorch Documentation](https://pytorch.org/tutorials/intermediate/reinforcement_q_learning.html)

@@ -4,6 +4,11 @@
 
 This repository contains the implementation of Deep Reinforcement Learning (RL) algorithms, Deep Q-Networks (DQN) and its improved variant. The projects involve solving various environments, from simple grid worlds to complex tasks like balancing a pole and navigating a car on a mountain. These environments aim to demonstrate the effectiveness of RL algorithms and provide insights into their performance on different tasks.
 
+## 💻 Team Members
+
+-   Charvi Kusuma [GitHub](https://github.com/kcharvi)
+-   Tarun Reddi [GitHub](https://github.com/REDDITARUN)
+
 ### Real-World Application
 
 Deep RL is a crucial area of artificial intelligence that enables agents to make decisions in complex, dynamic environments. By working on these you will gain hands-on experience with value function approximation, experience replay, and target networks. This github project is useful for understanding how RL can be applied to real-world problems, such as robotics, game playing, and autonomous driving.

@@ -142,14 +142,14 @@ Refer to the <a src="https://github.com/kcharvi/Defining-and-Solving-Reinforceme
 -   **Mountain Car**: DDQN occasionally performs better but struggles overall, indicating the need for further enhancements.
 
 1. **Frozen Lake**
-   ![Frozen Lake DDQN Evaluation](<images/Untitled%20(3).png>)
-   ![Frozen Lake DDQN Evaluation](<images/Untitled%20(4).png>)
+   ![Frozen Lake DDQN Evaluation](<images/Untitled_(3).png>)
+   ![Frozen Lake DDQN Evaluation](<images/Untitled_(4).png>)
 2. **CartPole**
-   ![CartPole DDQN Evaluation](<images/Untitled%20(5).png>)
-   ![CartPole DDQN Evaluation](<images/Untitled%20(6).png>)
+   ![CartPole DDQN Evaluation](<images/Untitled_(5).png>)
+   ![CartPole DDQN Evaluation](<images/Untitled_(6).png>)
 3. **Mountain Car**
-   ![Mountain Car DDQN Evaluation](<images/Untitled%20(7).png>)
-   ![Mountain Car DDQN Evaluation](<images/Untitled%20(8).png>)
+   ![Mountain Car DDQN Evaluation](<images/Untitled_(7).png>)
+   ![Mountain Car DDQN Evaluation](<images/Untitled_(8).png>)
 
 ## Actor-Critic (A2C)
 
@@ -193,42 +193,50 @@ Each network uses a ReLU activation function in the hidden layers to introduce n
 
 ### Results and Discussions
 
-1. **CartPole-v1 Environment**
-   ![CartPole A2C](images/Untitled.png)
+#### CartPole-v1 Environment
 
-    - **Total Rewards per Episode**: Increasing rewards, showing the agent's learning progression.
+![CartPole A2C](images/Untitled.png)
 
-2. **BipedalWalker-v3 Environment**
-   ![BipedalWalker A2C](<images/Untitled%20(1).png>)
+-   Total Rewards per Episode: Increasing rewards, showing the agent's learning progression.
 
-    - **Total Rewards per Episode**: Fluctuating rewards, reflecting the environment's complexity.
+#### BipedalWalker-v3 Environment
 
-3. **Grid World Environment**
-   ![GridWorld A2C](<images/Untitled%20(2).png>)
+![BipedalWalker A2C](<images/Untitled_(1).png>)
 
-    - **Total Rewards per Episode**: Increasing trend, indicating the agent's effective learning of the environment.
+-   Total Rewards per Episode: Fluctuating rewards, reflecting the environment's complexity.
+
+#### Grid World Environment
+
+![GridWorld A2C](<images/Untitled_(2).png>)
+
+-   Total Rewards per Episode: Increasing trend, indicating the agent's effective learning of the environment.
 
 ### Evaluation Results
 
-1. **CartPole**
-   ![CartPole A2C Evaluation](<images/Untitled%20(3)_.png>)
+#### CartPole
 
-    - **Performance**: Consistently achieving maximum rewards, indicating a well-learned policy.
+![CartPole A2C Evaluation](<images/Untitled_(3)_.png>)
 
-2. **BipedalWalker**
-   ![BipedalWalker A2C Evaluation](<images/Untitled%20(4)_.png>)
+-   Performance: Consistently achieving maximum rewards, indicating a well-learned policy.
 
-    - **Performance**: Fluctuating evaluation scores, showing the need for further fine-tuning.
+#### BipedalWalker
 
-3. **Grid World**
-   ![GridWorld A2C Evaluation](<images/Untitled%20(5)_.png>)
+![BipedalWalker A2C Evaluation](<images/Untitled_(4)_.png>)
 
-    - **Performance**: Optimal rewards consistently, showing a reliable and robust learned policy.
+-   Performance: Fluctuating evaluation scores, showing the need for further fine-tuning.
+
+#### Grid World
+
+![GridWorld A2C Evaluation](<images/Untitled_(5)_.png>)
+
+-   Performance: Optimal rewards consistently, showing a reliable and robust learned policy.
 
 ### Comparison of Environments
 
 -   **CartPole**: The agent consistently hit the reward ceiling, showing effective learning and optimal policy.
+
 -   **BipedalWalker**: Fluctuating learning experience due to environment complexity, but overall trend indicates improvement.
+
 -   **Grid World**: Optimal rewards achieved consistently, reflecting the agent's ability to navigate the environment effectively.
 
 ## Image-based Environment - Car Racing
@@ -243,7 +251,7 @@ The CarRacing environment falls into this category, where the state is represent
 -   The agent receives rewards based on its position and speed on the track, with higher rewards for staying on the track, maintaining high speed, and completing laps efficiently.
 -   Car Racing Training:
 
-    ![Car Racing Training](<images/Untitled%20(6)_.png>)
+    ![Car Racing Training](<images/Untitled_(6)_.png>)
 
 ## References
 
